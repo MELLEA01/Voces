@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Voces de Papel</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        img {
+            width: 200px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.2);
+        }
+
+        body, h1, h2, h3, p, ul, li, a {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        body {
+            font-family:  'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #fffffffb;
+            color: #060606;
+        }
+
+        header {
+            background: #262424;
+            color: #ffffff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #ffc107;
+        }
+
+        main {
+            padding: 2rem 1rem;
+        }
+
+        main section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #b3d5f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .libro {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border: 1px solid #b3d5f9;
+            border-radius: 4px;
+            background-color: #faf8f8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #c0dcf9;
+            color: #050505ee;
+        }
+
+        .carousel img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .inicio img {
+            width: 300px; 
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .inicio img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Biblioteca Voces de Papel</h1>
+    </header>
+	
+	<center>
+	<table width="400" border="0" cellpadding="rojo">
+  <tbody>
+    <tr>
+      <td><strong>&nbsp;<a href="Biblioteca, Quienes Somos.html">Quienes Somos</a></strong></td>
+		<td>&nbsp;<strong><a href="Biblioteca, Base de Datos.html">Base de Datos</a></strong></td>
+      <td>&nbsp;<strong><a href="Biblioteca, Libros.html">Libros</a></strong></td>
+    </tr>
+  </tbody>
+</table>
+
+		</center>
+
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://elartedeloslibros.wordpress.com/wp-content/uploads/2012/02/librerc3ada-muac.jpg?w=600" class="d-block w-100" alt="Imagen 1">
+            </div>
+            <div class="carousel-item">
+                <img src="https://media.istockphoto.com/id/1474897363/es/foto/la-mano-de-una-mujer-recogiendo-un-libro-de-una-estanter%C3%ADa-de-la-biblioteca.jpg?s=612x612&w=0&k=20&c=F7rt8hKTOoVG0WoSlod6y7Nc1EpPJ09vQJWKixScaeM=" class="d-block w-100" alt="Imagen 2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://media.istockphoto.com/id/2020715428/es/foto/books.jpg?s=612x612&w=0&k=20&c=YVcAAocpME-rqA60LRmHTShZfDvAhdCDcHT7kirQgSM=" class="d-block w-100" alt="Imagen 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <main>
+        <section id="inicio">
+            <center>
+                <h2>BIENVENIDO</h2>
+            <p>Esta biblioteca más que un espacio para consultar libros, es un refugio de conocimiento, inspiración y aprendizaje. Nuestra misión es fomentar el amor por la lectura, proporcionando acceso a una vasta colección de materiales educativos, literarios y culturales.</p>
+            <p>Nos esforzamos por ser un lugar de encuentro para la comunidad, donde cada visitante pueda explorar nuevos horizontes a través de los libros. Ya sea que busques una novela fascinante, un ensayo revelador o un libro técnico, aquí encontrarás algo para ti.</p>
+            <p>Creemos que el conocimiento debe estar al alcance de todos, por lo que promovemos actividades educativas, clubes de lectura y eventos culturales para enriquecer el espíritu y el intelecto.</p>
+            <p>¡Te invitamos a recorrer nuestras estanterías, descubrir historias nuevas y hacer de la lectura una experiencia inolvidable!</p>
+        </section>
+			</center>
+		<center>
+            <h2>TENDENCIAS</h2>
+                <div class="inicio">
+                    <img src="https://static.cegal.es/imagenes/marcadas/9788401/978840103524.gif" alt="cede 1"/>
+                    <img src="https://static.cegal.es/imagenes/marcadas/9788491/978849129964.gif" alt="cede 2"/>
+                    <img src="https://static.cegal.es/imagenes/marcadas/9788423/978842336717.gif" alt="cede 3"/>
+                     <img src="https://static.cegal.es/imagenes/marcadas/9788401/978840103479.gif" alt="cede 4"/>
+                      <img src="https://static.cegal.es/imagenes/marcadas/9788410/978841025718.gif" alt="cede 5"/>
+                </div>
+            </center>
+        </section>
+
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Biblioteca Voces de Papel. Todos los derechos reservados.</p>
+    </footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>                                                                                                         

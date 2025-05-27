@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Formulario de Registro de Libro - Librería</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #6a6a6d, #56aec4);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+        .container {
+            background: #787980;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            max-width: 480px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        input, select {
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            transition: box-shadow 0.3s ease;
+        }
+        input:focus, select:focus {
+            box-shadow: 0 0 8px 2px #8cbddf;
+        }
+        button {
+            background: #93e4ec;
+            color: #fff;
+            border: none;
+            font-size: 1.1rem;
+            padding: 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background: #7c4dff;
+        }
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.85rem;
+            margin-top: -15px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        @media (max-width: 520px) {
+            .container {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Libro</h1>
+        <form id="libroForm" novalidate>
+            <label for="titulo">Título *</label>
+            <input type="text" id="titulo" name="titulo" required />
+            <div class="error-message" id="error-titulo">Por favor ingresa el título.</div>
+
+            <label for="autor">Autor *</label>
+            <input type="text" id="autor" name="autor" required />
+            <div class="error-message" id="error-autor">Por favor ingresa el autor.</div>
+
+            <label for="anio">Año de publicación *</label>
+            <input type="number" id="anio" name="anio" min="1000" max="2099" required />
+            <div class="error-message" id="error-anio">Por favor ingresa un año válido.</div>
+
+            <label for="paginas">Número de páginas *</label>
+            <input type="number" id="paginas" name="paginas" min="1" required />
+            <div class="error-message" id="error-paginas">Por favor ingresa un número válido de páginas.</div>
+
+            <label for="genero">Género *</label>
+            <select id="genero" name="genero" required>
+                <option value="" disabled selected>Seleccione un género</option>
+                <option value="novela">Novela</option>
+                <option value="poesia">Poesía</option>
+                <option value="ensayo">Ensayo</option>
+                <option value="ciencia">Ciencia</option>
+                <option value="historia">Historia</option>
+                <option value="fantasia">Fantasía</option>
+                <option value="infantil">Infantil</option>
+                <option value="otros">Otros</option>
+            </select>
+            <div class="error-message" id="error-genero">Por favor selecciona un género.</div>
+
+            <label for="stock">Cantidad en stock *</label>
+            <input type="number" id="stock" name="stock" min="0" required />
+            <div class="error-message" id="error-stock">Por favor ingresa la cantidad en stock.</div>
+
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('libroForm');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            clearErrors();
+
+            let valid = true;
+
+            // Título
+            const titulo = form.titulo.value.trim();
+            if (titulo === '') {
+                showError('titulo');
+                valid = false;
+            }
+            // Autor
+            const autor = form.autor.value.trim();
+            if (autor === '') {
+                showError('autor');
+                valid = false;
+            }
+            // Año
+            const anio = parseInt(form.anio.value, 10);
+            if (isNaN(anio) || anio < 1000 || anio > 2099) {
+                showError('anio');
+                valid = false;
+            }
+            // Páginas
+            const paginas = parseInt(form.paginas.value, 10);
+            if (isNaN(paginas) || paginas < 1) {
+                showError('paginas');
+                valid = false;
+            }
+            // Género
+            const genero = form.genero.value;
+            if (!genero) {
+                showError('genero');
+                valid = false;
+            }
+            // Stock
+            const stock = parseInt(form.stock.value, 10);
+            if (isNaN(stock) || stock < 0) {
+                showError('stock');
+                valid = false;
+            }
+
+            if (valid) {
+                alert('Libro agregado con éxito:\n' +
+                    `Título: ${titulo}\n` +
+                    `Autor: ${autor}\n` +
+                    `Año: ${anio}\n` +
+                    `Páginas: ${paginas}\n` +
+                    `Género: ${genero}\n` +
+                    `Stock: ${stock}`
+                );
+                form.reset();
+            }
+        });
+
+        function showError(field) {
+            const errorDiv = document.getElementById(`error-${field}`);
+            if (errorDiv) {
+                errorDiv.style.display = 'block';
+            }
+        }
+
+        function clearErrors() {
+            const errors = document.querySelectorAll('.error-message');
+            errors.forEach(err => err.style.display = 'none');
+        }
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Libros - Biblioteca Voces de Papel</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #262424;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        .libros-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 libros por fila */
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .libro {
+            position: relative;
+            perspective: 1000px;
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .libro .contenido {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 200px;
+            height: 250px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .libro:hover .contenido {
+            transform: rotateY(180deg);
+        }
+
+        .libro img,
+        .libro .resumen {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 8px;
+        }
+
+        .libro .resumen {
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transform: rotateY(180deg);
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #6b737b;
+            color: #fff;
+        }
+
+        .libro img {
+    width: 200px;        
+    height: 250px;         
+    border-radius: 5px;  
+}
+
+.libro {
+    width: 300px;          
+    height: 400px;         
+    padding: 5px;         
+    box-sizing: border-box; 
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd;     
+    border-radius: 8px;          
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 5px;            
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Catálogo de Libros - Biblioteca El Saber</h1>
+    </header>
+
+    <center>
+        <table width="400" border="0">
+            <tbody>
+                <tr>
+                    <td><strong>&nbsp;<a href="Inicio.html">Inicio</a></strong></td>
+                    <td>&nbsp;<strong><a href="Biblioteca, Quienes Somos.html">Quienes Somos</a></strong></td> 
+                    <td>&nbsp;<strong><a href="#">Servicios</a></strong></td>
+                    <td>&nbsp;<strong><a href="Biblioteca, Base de Datos.html">Base de Datos</a></strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+
+    <main>
+        <input type="text" class="search-bar" id="searchInput" placeholder="Buscar un libro...">
+
+        <div class="libros-container" id="catalogo">
+            <div class="libro">
+                <h3>El Principito</h3>
+                <div class="contenido">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjXq6DETeZT90to2v1rMOSYuDddeF_WFxHIw&s"/>
+                    <div class="resumen">
+                        <p>Un cuento filosófico que explora la vida, el amor y la amistad a través de los ojos de un niño viajero.</p>
+                    </div>
+                </div>
+                <p>Autor: Antoine de Saint-Exupéry</p>
+            </div>
+            <div class="libro">
+                <h3>Cien Años de Soledad</h3>
+                <div class="contenido">
+                    <img src="https://demuseo.com/wp-content/uploads/2022/04/73020.jpeg"/>
+                    <div class="resumen">
+                        <p>Una obra maestra que narra la historia de la familia Buendía en el mítico pueblo de Macondo.</p>
+                    </div>
+                </div>
+                <p>Autor: Gabriel García Márquez</p>
+            </div>
+            <div class="libro">
+                <h3>Don Quijote de la Mancha</h3>
+                <div class="contenido">
+                    <img src="https://img.pacifiko.com/PROD/resize/1/500x500/ZDAzMjA5OT.jpg"/>
+                    <div class="resumen">
+                        <p>Una novela que sigue las aventuras del ingenioso hidalgo Don Quijote y su fiel escudero Sancho Panza.</p>
+                    </div>
+                </div>
+                <p>Autor: Miguel de Cervantes</p>
+            </div>
+            <div class="libro">
+                <h3>Y no quedó ninguno</h3>
+                <div class="contenido">
+                    <img src="https://tienda.sophosenlinea.com/imagenes/9788467/978846707278.webp"/>
+                    <div class="resumen">
+                        <p>Un emocionante misterio de Agatha Christie que mantiene al lector en suspenso hasta el último momento.</p>
+                    </div>
+                </div>
+                <p>Autor: Agatha Christie</p>
+            </div>
+            <div class="libro">
+                <h3>Triple representatividad</h3>
+                <div class="contenido">
+                    <img src="https://s.libertaddigital.com/2015/01/22/6.triple-representatividad.jpg"/>
+                    <div class="resumen">
+                        <p>Un libro sobre las ideas fundamentales de la triple representatividad en la política china.</p>
+                    </div>
+                </div>
+                <p>Autor: Jiang Zemin</p>
+            </div>
+             <div class="libro">
+                <h3>1984</h3>
+                <div class="contenido">
+                    <img src="https://imagessl4.casadellibro.com/a/l/s5/44/9780141036144.webp"/>
+                    <div class="resumen">
+                        <p>En un mundo totalitario, el gobierno controla cada aspecto de la vida y manipula la verdad, mientras un hombre lucha por su libertad.</p>
+                    </div>
+                </div>
+                <p>Autor: George Orwell</p>
+            </div>
+             <div class="libro">
+                <h3>Crimen y Castigo</h3>
+                <div class="contenido">
+                    <img src="https://tienda.sophosenlinea.com/imagenes/9788417/978841747763.webp"/>
+                    <div class="resumen">
+                        <p>Un joven estudiante comete un asesinato y enfrenta un profundo dilema moral mientras es perseguido por la justicia.</p>
+                    </div>
+                </div>
+                <p>Autor: Fiódor Dostoyevski</p>
+            </div>
+             <div class="libro">
+                <h3>Orgullo y Prejuicio</h3>
+                <div class="contenido">
+                    <img src="https://img.pacifiko.com/PROD/resize/1/500x500/NmVmZTI3ND.jpg"/>
+                    <div class="resumen">
+                        <p>Elizabeth Bennet y el señor Darcy navegan los prejuicios sociales y sus propios sentimientos en la Inglaterra del siglo XIX.</p>
+                    </div>
+                </div>
+                <p>Autor: Jane Austen</p>
+            </div>
+
+             <div class="libro">
+    <h3>Matar a un Ruiseñor</h3>
+    <div class="contenido">
+        <img src="https://images.penguinrandomhouse.com/cover/9780061120084" />
+        <div class="resumen">
+            <p>Un abogado defiende a un hombre negro acusado injustamente en un pueblo sureño de EE.UU., mientras su hija aprende sobre la injusticia.</p>
+        </div>
+    </div>
+    <p>Autor: Harper Lee</p>
+</div>
+
+<div class="libro">
+    <h3>Los Miserables</h3>
+    <div class="contenido">
+        <img src="https://th.bing.com/th/id/R.c63ca9afb5bd742e8ee4a7ea3619fb05?rik=tpOELHF7AcFMOw&pid=ImgRaw&r=0" />
+        <div class="resumen">
+            <p>Jean Valjean, un exconvicto, busca redimirse en una sociedad que lo rechaza, mientras es perseguido por el implacable inspector Javert.</p>
+        </div>
+    </div>
+    <p>Autor: Victor Hugo</p>
+</div>
+
+<div class="libro">
+    <h3>Rayuela</h3>
+    <div class="contenido">
+        <img src="https://th.bing.com/th/id/R.f11f1967b4873a86b436f3da5dfeb2bf?rik=TsI82KalqtL86g&pid=ImgRaw&r=0" />
+        <div class="resumen">
+            <p>Una novela experimental que sigue la vida de Horacio Oliveira en París y Buenos Aires, explorando el amor y la búsqueda de sentido.</p>
+        </div>
+    </div>
+    <p>Autor: Julio Cortázar</p>
+</div>
+
+<div class="libro">
+    <h3>El Gran Gatsby</h3>
+    <div class="contenido">
+        <img src="https://th.bing.com/th/id/R.5dcb4e9a6ab0c1cd13d9cec7697a5160?rik=V2atSc0kOGOqCw&pid=ImgRaw&r=0" />
+        <div class="resumen">
+            <p>Jay Gatsby organiza lujosas fiestas con la esperanza de recuperar a su amor perdido, en una historia sobre la obsesión y el vacío.</p>
+        </div>
+    </div>
+    <p>Autor: F. Scott Fitzgerald</p>
+</div>
+
+<div class="libro">
+    <h3>La Metamorfosis</h3>
+    <div class="contenido">
+        <img src="https://th.bing.com/th/id/OIP.IR_5yqBZ9T_I7U27bCN2KgHaLQ?rs=1&pid=ImgDetMain" />
+        <div class="resumen">
+            <p>Gregor Samsa despierta convertido en un insecto y enfrenta el rechazo de su familia y la pérdida de su humanidad.</p>
+        </div>
+    </div>
+    <p>Autor: Franz Kafka</p>
+</div>
+
+<div class="libro">
+    <h3>Fahrenheit 451</h3>
+    <div class="contenido">
+        <img src="https://th.bing.com/th/id/R.32a6833fc9a3628440df4960aa8b541d?rik=CWo%2bN99LiECy%2fg&pid=ImgRaw&r=0" />
+        <div class="resumen">
+            <p>En un futuro donde los libros están prohibidos, un bombero encargado de quemarlos comienza a cuestionar su propósito.</p>
+        </div>
+    </div>
+    <p>Autor: Ray Bradbury</p>
+</div>
+
+<div class="libro">
+    <h3>El Nombre de la Rosa</h3>
+    <div class="contenido">
+        <img src="https://th.bing.com/th/id/OIP.zhoUROWqbCJKsb2qkjqu5QHaLZ?rs=1&pid=ImgDetMain" />
+        <div class="resumen">
+            <p>Un monje investiga una serie de asesinatos en un monasterio medieval, mientras descubre secretos ocultos en una biblioteca.</p>
+        </div>
+    </div>
+    <p>Autor: Umberto Eco</p>
+</div>
+
+<div class="libro">
+    <h3>Los Pilares de la Tierra</h3>
+    <div class="contenido">
+        <img src="https://tienda.sophosenlinea.com/imagenes/9788401/978840103013.webp" />
+        <div class="resumen">
+            <p>La construcción de una catedral en la Edad Media sirve de telón de fondo para una historia de ambición, amor y traición.</p>
+        </div>
+    </div>
+    <p>Autor: Ken Follett</p>
+</div>
+
+<div class="libro">
+    <h3>El Hobbit</h3>
+    <div class="contenido">
+        <img src="https://static.wikia.nocookie.net/bibliotecadelatierramedia/images/8/88/Lelhobbit.jpg/revision/latest?cb=20130725103721&path-prefix=es" />
+        <div class="resumen">
+            <p>Bilbo Bolsón, un hobbit tranquilo, es arrastrado a una aventura con enanos para recuperar un tesoro custodiado por un dragón.</p>
+        </div>
+    </div>
+    <p>Autor: J.R.R. Tolkien</p>
+</div>
+
+<div class="libro">
+    <h3>Drácula</h3>
+    <div class="contenido">
+        <img src="https://m.media-amazon.com/images/I/71hhPWoeNBS._AC_UF1000,1000_QL80_.jpg" />
+        <div class="resumen">
+            <p>Un grupo de personas lucha contra el conde Drácula, un vampiro que busca expandir su dominio en Londres.</p>
+        </div>
+    </div>
+    <p>Autor: Bram Stoker</p>
+</div>
+
+<div class="libro">
+    <h3>Frankenstein</h3>
+    <div class="contenido">
+        <img src="https://tienda.sophosenlinea.com/imagenes/9788467/978846707495.webp" />
+        <div class="resumen">
+            <p>Victor Frankenstein crea una criatura con partes humanas, pero su experimento se convierte en una pesadilla.</p>
+        </div>
+    </div>
+    <p>Autor: Mary Shelley</p>
+</div>
+
+<div class="libro">
+    <h3>Las Aventuras de Sherlock Holmes</h3>
+    <div class="contenido">
+        <img src="https://silverlibros.com/wp-content/uploads/2022/07/9788415618829-LAS-AVENTURAS-DE-SHERLOCK-HOLMES.jpg" />
+        <div class="resumen">
+            <p>El famoso detective Sherlock Holmes resuelve casos complejos con su aguda inteligencia.</p>
+        </div>
+    </div>
+    <p>Autor: Arthur Conan Doyle</p>
+</div>
+
+<div class="libro">
+    <h3>El Señor de los Anillos</h3>
+    <div class="contenido">
+        <img src="https://flysgalactic.com/cdn/shop/files/978844501395.jpg?v=1721962703" />
+        <div class="resumen">
+            <p>Frodo Bolsón emprende un viaje para destruir un anillo maligno y salvar la Tierra Media.</p>
+        </div>
+    </div>
+    <p>Autor: J.R.R. Tolkien</p>
+</div>
+
+<div class="libro">
+    <h3>Moby Dick</h3>
+    <div class="contenido">
+        <img src="https://tienda.sophosenlinea.com/imagenes/9788491/978849104961.webp" />
+        <div class="resumen">
+            <p>El capitán Ahab busca vengarse de la ballena blanca que lo dejó mutilado, en una obsesión que lo consume.</p>
+        </div>
+    </div>
+    <p>Autor: Herman Melville</p>
+</div>
+
+<div class="libro">
+    <h3>La Divina Comedia</h3>
+    <div class="contenido">
+        <img src="https://img.pacifiko.com/PROD/resize/1/500x500/OTU3ZTZkYj.jpg" />
+        <div class="resumen">
+            <p>Dante viaja por el Infierno, el Purgatorio y el Paraíso, explorando la justicia divina y la redención.</p>
+        </div>
+    </div>
+    <p>Autor: Dante Alighieri</p>
+</div>
+
+<div class="libro">
+    <h3>Ulises</h3>
+    <div class="contenido">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Ulysses%2C_1922.djvu/page1-1200px-Ulysses%2C_1922.djvu.jpg" />
+        <div class="resumen">
+            <p>Un día en la vida de Leopold Bloom en Dublín, narrado con una estructura compleja y experimental.</p>
+        </div>
+    </div>
+    <p>Autor: James Joyce</p>
+</div>
+
+<div class="libro">
+    <h3>El Extranjero</h3>
+    <div class="contenido">
+        <img src="https://silverlibros.com/wp-content/uploads/2022/03/9786070738548-EL-EXTRANJERO.jpg" />
+        <div class="resumen">
+            <p>Un hombre indiferente comete un crimen y enfrenta las consecuencias de su falta de emociones.</p>
+        </div>
+    </div>
+    <p>Autor: Albert Camus</p>
+</div>
+
+<div class="libro">
+    <h3>La Historia Interminable</h3>
+    <div class="contenido">
+        <img src="https://tienda.sophosenlinea.com/imagenes/9788419/978841968846.webp" />
+        <div class="resumen">
+            <p>Un niño entra en un mundo mágico a través de un libro y debe salvarlo de la destrucción.</p>
+        </div>
+    </div>
+    <p>Autor: Michael Ende</p>
+</div>
+
+<div class="libro">
+    <h3>El Código Da Vinci</h3>
+    <div class="contenido">
+        <img src="https://m.media-amazon.com/images/I/71PR0C4XNjL._SL1500_.jpg" />
+        <div class="resumen">
+            <p>Un profesor de simbología descifra un misterio que involucra secretos religiosos y conspiraciones.</p>
+        </div>
+    </div>
+    <p>Autor: Dan Brown</p>
+</div>
+
+<div class="libro">
+    <h3>Jane Eyre</h3>
+    <div class="contenido">
+        <img src="https://tienda.sophosenlinea.com/imagenes/9788491/978849104896.webp" />
+        <div class="resumen">
+            <p>La historia de una joven huérfana que lucha por su independencia y encuentra el amor en una mansión llena de secretos.</p>
+        </div>
+    </div>
+    <p>Autor: Charlotte Brontë</p>
+</div>
+
+<div class="libro">
+    <h3>Ana Karenina</h3>
+    <div class="contenido">
+        <img src="https://tienda.sophosenlinea.com/imagenes/9788415/978841561888.webp" />
+        <div class="resumen">
+            <p>Una mujer noble rusa enfrenta las consecuencias de un amor prohibido y la presión de la sociedad.</p>
+        </div>
+    </div>
+    <p>Autor: León Tolstói</p>
+</div>
+
+<div class="libro">
+    <h3>La insoportable levedad del ser</h3>
+    <div class="contenido">
+        <img src="https://tienda.sophosenlinea.com/imagenes/9788411/978841107077.webp" />
+        <div class="resumen">
+            <p>Una reflexión sobre el amor, la libertad y el destino en la Checoslovaquia comunista.</p>
+        </div>
+    </div>
+    <p>Autor: Milan Kundera</p>
+</div>
+
+<div class="libro">
+    <h3>El sabueso de los Baskerville</h3>
+    <div class="contenido">
+        <img src="https://m.media-amazon.com/images/I/81snr0PWmrL._UF1000,1000_QL80_.jpg" />
+        <div class="resumen">
+            <p>Sherlock Holmes investiga una maldición familiar relacionada con un perro espectral.</p>
+        </div>
+    </div>
+    <p>Autor: Arthur Conan Doyle</p>
+</div>
+
+<div class="libro">
+    <h3>Fuego y Sangre</h3>
+    <div class="contenido">
+        <img src="https://demuseo.com/wp-content/uploads/2018/12/9786073173025.jpg" />
+        <div class="resumen">
+            <p>Una crónica detallada de la dinastía Targaryen, dos siglos antes de los eventos de Juego de Tronos, llena de guerras, traiciones y dragones.</p>
+        </div>
+    </div>
+    <p>Autor: George R. R. Martin</p>
+</div>
+
+
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Biblioteca El Saber. Todos los derechos reservados.</p>
+    </footer>
+
+<script>
+    document.getElementById("searchInput").addEventListener("keyup", function() {
+        let filter = this.value.toLowerCase();
+        let libros = document.querySelectorAll(".libro");
+
+        libros.forEach(libro => {
+            let titulo = libro.querySelector("h3").textContent.toLowerCase();
+            if (titulo.includes(filter)) {
+                libro.style.display = "flex";
+            } else {
+                libro.style.display = "flex"; 
+                libro.style.visibility = "hidden"; 
+                libro.style.position = "absolute"; 
+            }
+        });
+
+        if (filter === "") {
+            libros.forEach(libro => {
+                libro.style.display = "flex";
+                libro.style.visibility = "visible";
+                libro.style.position = "static";
+            });
+        }
+    });
+</script>
